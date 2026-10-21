@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nudge AI — Smart Follow-Up Assistant</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo">✦ Nudge AI</div>
+    <span>Your life, organized.</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="tag">YOUR PERSONAL FOLLOW-UP ASSISTANT</span>
+      <h1>Never forget<br>what matters.</h1>
+      <p>Keep track of bills, refunds, warranties, and important follow-ups in one simple place.</p>
+      <button onclick="document.getElementById('reminders').scrollIntoView({behavior:'smooth'})">
+        View my reminders →
+      </button>
+    </section>
+
+    <section class="stats">
+      <div class="card">
+        <p>Total reminders</p>
+        <h2 id="totalCount">0</h2>
+      </div>
+      <div class="card">
+        <p>Due soon</p>
+        <h2 id="dueCount">0</h2>
+      </div>
+      <div class="card">
+        <p>Completed</p>
+        <h2 id="completedCount">0</h2>
+      </div>
+    </section>
+
+    <section id="reminders">
+      <div class="section-title">
+        <h2>Your reminders</h2>
+        <button id="addReminderButton">+ Add reminder</button>
+      </div>
+
+      <form id="reminderForm" class="card" hidden>
+        <h3>Create a reminder</h3>
+
+        <label for="reminderTitle">What do you need to remember?</label>
+        <input id="reminderTitle" type="text" maxlength="120"
+          placeholder="e.g. Follow up on my refund" required>
+
+        <label for="reminderCategory">Category</label>
+        <select id="reminderCategory" required>
+          <option value="Bill">Bill</option>
+          <option value="Refund">Refund</option>
+          <option value="Warranty">Warranty</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="reminderDate">Due date</label>
+        <input id="reminderDate" type="date">
+
+        <div style="display:flex;gap:10px;margin-top:18px">
+          <button type="submit">Save reminder</button>
+          <button type="button" id="cancelReminderButton"
+            style="background:#77738e">Cancel</button>
+        </div>
+      </form>
+
+      <div id="reminderList"></div>
+
+      <div id="emptyMessage" class="card">
+        <h3>👋 Welcome to Nudge AI!</h3>
+        <p>Your important follow-ups will appear here.</p>
+        <p>Add a bill, refund, warranty, or task to get started.</p>
+      </div>
+    </section>
+
+    <footer style="text-align:center;padding:35px 0;color:#77738e">
+      <p>Made with care by Nudge AI · Your life, organized.</p>
+    </footer>
+  </main>
+</body>
+</html>
